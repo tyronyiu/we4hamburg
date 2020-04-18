@@ -126,5 +126,8 @@ background-position: center;
     .form-b{
         font-size: 1vw;
     }
+    .spacer-m{
+        height: 20vh;
+    }
 
 }
