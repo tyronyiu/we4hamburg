@@ -10,30 +10,35 @@ h1{
 }
 h2{
     margin: 0;
-    font-size: 8vw;
 }
 p{
     font-size: 3vh;
 }
 .heading-c h1{
     font-weight: 900;
-    font-size: 12vw;
-    display: table-cell;
+    font-size: 15vw;
+    line-height: 10vh;
     color: white;
     padding: 2.5vw;
-    vertical-align: middle;
+    top: 10vh;
+    position: relative;
 }
 .heading-c h2{
-    font-weight: 800;
-    font-size: 8vw;
+    font-weight: 500;
+    font-size: 5vw;
     padding-left: 2.5vw;
 }
 .heading-c{
-    /*height: 90vh;*/
+    height: 70vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top left;
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(https://images.unsplash.com/photo-1526455858803-300d96d74f5e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80);
 }
 .title-c{
     height: 5vh;
     padding: 2.5vh 0;
+    color: white;
 }
 .banner-img{
     width: 100vw;
@@ -41,13 +46,12 @@ p{
 
 }
 .title-slogan-c{
-    display: table;
-    background-image: url(https://images.unsplash.com/photo-1526455858803-300d96d74f5e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80);
+    /*background-image: url(https://images.unsplash.com/photo-1526455858803-300d96d74f5e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80);
     width: 100vw;
     height: 70vh;
     background-repeat: no-repeat;
     background-size: cover;
-background-position: center;
+background-position: center;*/
 }
 .spacer-bl{
     background: black;
@@ -102,16 +106,21 @@ background-position: center;
 }
 
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 1025px) {
     h2{
         font-size: 4vw;
+    }
+    .heading-c{
+        height: 90vh;
+        background-position: top center;
     }
     .heading-c h2{
         font-size: 2vw;
     }
     .heading-c h1{
         font-size: 7vw;
-        padding-right: 15vw;
+        padding-right: 25vw;
+        line-height: 15vh;
     }
     .form-d{
         font-size: 4vw;
@@ -130,4 +139,16 @@ background-position: center;
         height: 20vh;
     }
 
+}
+
+
+@media only screen and (orientation : landscape) and (max-width: 1025px) {
+    .heading-c{
+        height: 90vh;
+    }
+    .heading-c h1 {
+        font-size: 8vw;
+        line-height: 15vh;
+        padding-right: 15vw;
+    }
 }
