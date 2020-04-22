@@ -51,7 +51,7 @@ p{
     height: 70vh;
     background-repeat: no-repeat;
     background-size: cover;
-background-position: center;*/
+    background-position: center;*/
 }
 .spacer-bl{
     background: black;
@@ -75,6 +75,7 @@ background-position: center;*/
 .form-d{
     padding: 2.5vw;
     font-size: 8vw;
+    padding-left: 10vw;
 }
 .form-c{
     width: 60%;
@@ -87,7 +88,7 @@ background-position: center;*/
     color: black;
     background: white;
     box-shadow: 5px 5px 11px #b5b5b5,
-                -5px -5px 11px #ffffff;
+    -5px -5px 11px #ffffff;
     border: unset;
     padding: 2vh;
     font-family: Helvetica Neue;
@@ -113,46 +114,44 @@ background-position: center;*/
 .caption-c h1{
     padding: 5vw;
     text-align: center;
-    font-size: 5vw;
+    font-size: 8vw;
     color: black;
 }
 .section-c{
-    display: flex;
-    flex-flow: row wrap;
+    display: block;
+    width: 90vw;
+    margin: auto;
+    /*flex-flow: row wrap;*/
 }
 .rev-sec{
-    flex-flow: row-reverse wrap;
+    /*flex-flow: row-reverse wrap;*/
 }
 .rev-sec h2{
-    padding-left: 25%;
-    padding-right: 10%;
 }
 .section-t-c{
-    background: #99b4c7;
-    width: 40vw;
+    /*background: #99b4c7;*/
 }
 .section-t{
     padding: 10%;
-    color: white;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    padding-right: 25%;
+    color: black;
+    font-size: 8vw;
 }
 .section-p{
-    font-size: 2.5vw;
-    font-family: Helvetica Neue;
+    font-family: Avenir Next;
     font-weight: 400;
     padding: 5vw;
-    width: 50vw;
     align-self: center;
+    color: #404040;
     background: #f1f1f1;
     margin: 0;
+    font-size: 5vw;
     line-height: 6vh;
 }
 
 
-
+/*
+ *  LAPTOP, DESKTOP, IPAD 
+ */ 
 @media only screen and (min-width: 1025px) {
     h2{
         font-size: 4vw;
@@ -185,10 +184,46 @@ background-position: center;*/
     .spacer-m{
         height: 20vh;
     }
-
+    .grey{
+        /*background: #f1f1f1;*/
+    }
+    .caption-c h1{
+    font-size: 3vw;
+    }
+    .section-c{
+        display: flex;
+        flex-flow: row wrap;
+        width: 90vw;
+        margin: auto;
+    }
+    .rev-sec{
+        flex-flow: row-reverse wrap;
+    }
+    .rev-sec h2{
+        padding-left: 25%;
+        padding-right: 10%;
+    }
+    .section-t-c{
+        width: 30vw;
+    }
+    .section-t{
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 2vw;
+        padding-right: 25%;
+    }
+    .section-p{
+        width: 50vw;
+        font-size: 1.5vw;
+        line-height: 8vh;
+    }
 }
 
 
+/*
+ *  IPHONE LANDSCAPE
+ */ 
 @media only screen and (orientation : landscape) and (max-width: 1025px) {
     .heading-c{
         height: 90vh;
@@ -197,5 +232,34 @@ background-position: center;*/
         font-size: 8vw;
         line-height: 15vh;
         padding-right: 15vw;
+    }
+
+    .section-c{
+        display: flex;
+        flex-flow: row wrap;
+        width: 90vw;
+        margin: auto;
+    }
+    .rev-sec{
+        flex-flow: row-reverse wrap;
+    }
+    .rev-sec h2{
+        padding-left: 25%;
+        padding-right: 10%;
+    }
+    .section-t-c{
+        width: 30vw;
+    }
+    .section-t{
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 4vw;
+        padding-right: 25%;
+    }
+    .section-p{
+        width: 50vw;
+        font-size: 2.5vw;
+        line-height: 6vh;
     }
 }
