@@ -1,5 +1,9 @@
 ::placeholder {color:black;}
-
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 400;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+}
 body{
     margin: 0;
     font-family: Helvetica Neue;
@@ -137,7 +141,7 @@ p{
     font-size: 8vw;
 }
 .section-p{
-    font-family: Avenir Next;
+    font-family: San Francisco, -apple-system, BlinkMacSystemFont;
     font-weight: 400;
     padding: 5vw;
     align-self: center;
