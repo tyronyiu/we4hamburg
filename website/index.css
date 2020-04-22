@@ -105,6 +105,53 @@ background-position: center;*/
     box-shadow: 5px 5px 11px #b5b5b5, -5px -5px 11px #ffffff;
 }
 
+.caption-c{
+    width: 100vw;
+    margin: 5vh 0;
+    /*background: #1c1c1cde;*/
+}
+.caption-c h1{
+    padding: 5vw;
+    text-align: center;
+    font-size: 5vw;
+    color: black;
+}
+.section-c{
+    display: flex;
+    flex-flow: row wrap;
+}
+.rev-sec{
+    flex-flow: row-reverse wrap;
+}
+.rev-sec h2{
+    padding-left: 25%;
+    padding-right: 10%;
+}
+.section-t-c{
+    background: #99b4c7;
+    width: 40vw;
+}
+.section-t{
+    padding: 10%;
+    color: white;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-right: 25%;
+}
+.section-p{
+    font-size: 2.5vw;
+    font-family: Helvetica Neue;
+    font-weight: 400;
+    padding: 5vw;
+    width: 50vw;
+    align-self: center;
+    background: #f1f1f1;
+    margin: 0;
+    line-height: 6vh;
+}
+
+
 
 @media only screen and (min-width: 1025px) {
     h2{
