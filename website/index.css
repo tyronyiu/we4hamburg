@@ -73,7 +73,7 @@ p{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top left;
-    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url( https://bit.ly/2VQXFKG);
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(https://images.unsplash.com/photo-1526455858803-300d96d74f5e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80);
 }
 .no-banner{
     background-image: unset;
