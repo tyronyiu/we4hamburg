@@ -1,0 +1,15 @@
+#!/bin/zsh
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
+clear
+figlet -ck "Help"
+echo ""
+echo ""
+echo "At any point, <ESC> will bring you back to the previous menu point."
+echo "<Ctrl> + C will always quit the program."
+echo ""
+echo ""
+echo "press any key to go back:" 
+read  -n 1 
+$DIR/functions/openMenu

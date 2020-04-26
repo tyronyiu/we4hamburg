@@ -1,0 +1,11 @@
+#!/bin/zsh
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+alias fzf="fzf --height 40% --color=bw --reverse --border"
+unset LSCOLORS
+unset CLICOLOR
+choice=$(/bin/ls $DIR/values | fzf)
+echo "Please enter $choice:"
+read input 
+echo $input >> $DIR/values/$choice
+sed -ie "s/<+${choice}+>/${input}/g" $DIR/contact.vcf
+$DIR/functions/openMenu

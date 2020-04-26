@@ -1,0 +1,75 @@
+#!/bin/zsh
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
+alias fzf="fzf --height 60% --color=bw --reverse --border"
+unset LSCOLORS
+unset CLICOLOR
+clear
+$DIR/functions/prepareScreen
+echo ""
+echo "Please enter folder name with files to import:"
+echo ""
+
+# letting the user choose a file to import
+
+choice=$(cd $DIR/import && /bin/ls -d */ | fzf --preview 'cat  {}')
+[[ -z "$choice" ]] && clear && $DIR/functions/prepareScreen && $DIR/functions/openMenu
+choice=$(echo $choice | tr -d "/")
+#choice=${DIR}/${choice}
+echo $choice
+for current in $(ls ${DIR}/import/${choice}); do
+    if [ ! -d $DIR/outputs/$choice ]; then
+        mkdir $DIR/outputs/$choice
+    fi
+    if [ ! -d $DIR/outputs/$choice/$current ]; then
+        mkdir $DIR/outputs/$choice/$current
+    fi
+    # copying the sample file in place
+    cp $DIR/.backup-site $DIR/outputs/$choice/$current/index.html
+    cp $DIR/.backup-site-css $DIR/outputs/$choice/$current/$current.css
+    cp $DIR/.backup $DIR/outputs/$choice/$current/$current.vcf
+    FILE=$DIR/outputs/$choice/$current/index.html
+    CSSFILE=$DIR/outputs/$choice/$current/$current.css
+    VCFFILE=$DIR/outputs/$choice/$current/$current.vcf
+
+
+    while IFS="" read -r i || [ -n "$i" ]
+    do
+        VALUE=$(cat $DIR/import/$choice/$current | grep "$i" | cut -d\> -f2)
+        o=$(echo $i | cut -d\> -f1)
+        [[ -z "${VALUE// }" ]] && sed -ie "/$o/d" "$VCFFILE" || sed -ie "s|<+$o+>|${VALUE}|g" "$VCFFILE"
+    done < $DIR/.vcf-data
+    echo -e "${GREEN}VCF file creation successful..${NC}"
+
+    # iterating over all values
+    while IFS="" read -r i || [ -n "$i" ]
+    do
+        # What if no value is given at this point? -> leave blank and hide element
+        if [ $i = "" ];then
+        fi
+        # Substitutions made in the css file
+        if [ $i = "banner-image-link" ] || [ $i = "logo-link" ]; then
+        VALUE=$(cat $DIR/import/$choice/$current | grep "$i" | awk '{print $2}')
+        sed -ie "s|<+$i+>|${VALUE}|g" "$CSSFILE"
+        fi
+        # Default copy/paste 
+        VALUE=$(cat $DIR/import/$choice/$current | grep "$i" | cut -d\> -f2)
+        sed -ie "s|<+$i+>|${VALUE}|g" "$FILE"
+        sed -ie "s|<+css-name+>|${current}|g" "$FILE"
+        sed -ie "s|<+vcf-name+>|${current}|g" "$FILE"
+        sed -ie "s|<+$i+>|\&|g" "$FILE"
+        
+    done < $DIR/.site-data
+    # Giving feedback to the user 
+    echo -e "${GREEN}Site successfully generated in \"./outputs\", showing output..${NC}"
+    now $DIR/outputs/$choice/$current --confirm
+    sleep 1
+done
+# echo "$(basename $i): $(cat $DIR/import/$choice | grep "$(basename $i)" | awk '{print $2}')"
+     # Text needs to be escaped as its more than one word/string
+#    if [ $i = "paragraph-text" ]; then
+#        VALUE=$(awk '/paragraph-text:/ {print}' $DIR/import/$choice | sed 's/>.*paragraph-text://')
+#        sed -ie "s|<+$i+>|${VALUE}|g" "$FILE"
+#    fi
+#

@@ -1,0 +1,43 @@
+#!/bin/zsh
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
+alias fzf="fzf --height 60% --color=bw --reverse --border"
+unset LSCOLORS
+unset CLICOLOR
+clear
+$DIR/functions/prepareScreen
+echo ""
+echo "Please enter filename to import:"
+echo ""
+
+
+
+# letting the user choose a file to import
+choice=$(cd $DIR/import && /bin/ls | fzf --preview 'cat {}')
+[[ -z "$choice" ]] && clear && $DIR/functions/prepareScreen && $DIR/functions/openMenu
+if [ ! -d $DIR/outputs/$choice ]; then
+    mkdir $DIR/outputs/$choice
+fi
+# copying the sample file in place
+cp $DIR/.backup $DIR/outputs/$choice/$choice.vcf
+FILE=$DIR/outputs/$choice/$choice.vcf
+# iterating over all values
+
+while IFS="" read -r i || [ -n "$i" ]
+do
+    VALUE=$(cat $DIR/import/$choice | grep "$i" | cut -d\> -f2)
+    o=$(echo $i | cut -d\> -f1)
+    sed -ie "s|<+$o+>|${VALUE}|g" "$FILE"
+done < $DIR/.vcf-data
+
+echo -e "${GREEN}VCF file creation successful, returning to menu..${NC}"
+sleep 2
+$DIR/functions/openMenu
+# echo "$(basename $i): $(cat $DIR/import/$choice | grep "$(basename $i)" | awk '{print $2}')"
+# for i in $DIR/values/*;do
+#    VALUE=$(cat $DIR/import/$choice | grep "$(basename $i)" | awk '{print $2}')
+#    KEY=$(basename $i)
+#    sed -ie "s|<+$KEY+>|${VALUE}|g" "$FILE"
+# done
+

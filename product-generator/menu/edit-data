@@ -1,0 +1,6 @@
+#!/bin/zsh
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+alias fzf="fzf --height 60% --color=bw --reverse --border"
+choice=$(cd $DIR/import && /bin/ls | fzf --preview 'cat  {}')
+[[ -z "$choice" ]] && clear && $DIR/functions/prepareScreen && $DIR/functions/openMenu || vim $DIR/import/$choice

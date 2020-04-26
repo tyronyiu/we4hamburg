@@ -1,0 +1,14 @@
+#!/bin/zsh
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
+unset LSCOLORS
+unset CLICOLOR
+echo -e "${GREEN}converted sites:${NC}"
+dir1=$(/bin/ls $DIR/import)
+dir2=$(/bin/ls $DIR/outputs)
+#echo -e "${RED}$dir2${NC}"
+for i in $dir1;do
+    echo "$dir2" | grep "$i"
+done

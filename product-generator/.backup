@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:<+firstname+> <+lastname+>
+N:<+lastname+>;<+firstname+>;;;
+TITLE:<+organisation+>
+PHOTO;ENCODING=b;TYPE=PNG:<+photo+>
+TEL;TYPE=CELL:<+phone+>
+EMAIL;TYPE=WORK:<+email+>
+ADR;TYPE=<+workaddress+>,PREF:;;
+LABEL;TYPE=<+workaddress+>,PREF:
+X-SOCIALPROFILE;type=instagram;x-user=<+instagram+>:http://instagram.com/<+instagram+>
+END:VCARD

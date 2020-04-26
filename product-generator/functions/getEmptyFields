@@ -1,0 +1,8 @@
+#!/bin/zsh
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+echo ""
+echo -e "${RED}Empty Fields:${NC}"
+find $DIR/values -empty | sed "s|$DIR/values/||g"
+echo ""

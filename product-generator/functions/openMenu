@@ -1,0 +1,10 @@
+#!/bin/zsh
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+$DIR/functions/prepareScreen
+#$DIR/functions/status
+unset LSCOLORS
+unset CLICOLOR
+alias fzf="fzf --height 60% --color=bw --reverse --border"
+choice=$(/bin/ls $DIR/menu/ | fzf)
+[[ -z "$choice" ]] && clear && $DIR/functions/prepareScreen && exit 1 || $DIR/menu/$choice
+
