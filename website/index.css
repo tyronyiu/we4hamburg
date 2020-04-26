@@ -9,7 +9,7 @@ a{
     color: unset;
 }
 body{
-    background: #efeeee;
+/*    background: #efeeee;*/
     margin: 0;
     font-family: Helvetica Neue;
 }
@@ -277,7 +277,7 @@ font-size: 2vh;
     margin-bottom: 2em;
 }
 .bg-sec{
-    background: #efeeee;
+    background: linear-gradient(#ffffff, #efeeee,#efeeee, #efeeee,#ffffff);
     padding: 5em 0;
 }
 
