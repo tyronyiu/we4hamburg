@@ -243,7 +243,7 @@ margin: 5em 2em;
     height: 20vh;
     width: 20vh;
     margin: 2em;
-    background-size: 90%;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 12px;
