@@ -368,7 +368,7 @@ font-size: 2vh;
         max-width: 30%;
     }
     .grid-item{
-        margin: unset;
+        margin: 5em;
     }
     .note-c{
     float: right;
