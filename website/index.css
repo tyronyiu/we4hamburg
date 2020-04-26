@@ -265,6 +265,14 @@ width: 30vh;
 font-size: 2vh;
     color: rgba(0,0,0,0.5);
 }
+.grid-item-t{
+    color: rgba(0,0,0,0.5);
+    font-size: 2vh;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2em;
+}
 
 /*
  *  LAPTOP, DESKTOP, IPAD 
@@ -368,17 +376,19 @@ font-size: 2vh;
         max-width: 30%;
     }
     .grid-item{
-        margin: 5em;
+        margin: 5em 5em 2.5em 5em;
     }
     .note-c{
-    float: right;
-    width: 30vh;
-    margin-right: 10vw;   
+        float: right;
+        width: 30vh;
+        margin-right: 10vw;   
     }
     .note-p{
         
     }
+    .grid-item-t{
 
+    }
 }
 
 /*
