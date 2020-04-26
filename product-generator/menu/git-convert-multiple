@@ -56,8 +56,8 @@ for current in $(ls ${DIR}/import/${choice}); do
         # Default copy/paste 
         VALUE=$(cat $DIR/import/$choice/$current | grep "$i" | cut -d\> -f2)
         sed -ie "s|<+$i+>|${VALUE}|g" "$FILE"
-        sed -ie "s|<+css-name+>|${current}/${current}|g" "$FILE"
-        sed -ie "s|<+vcf-name+>|${current}/${current}|g" "$FILE"
+        sed -ie "s|<+css-name+>|${current}|g" "$FILE"
+        sed -ie "s|<+vcf-name+>|${current}|g" "$FILE"
         sed -ie "s|<+$i+>|\&|g" "$FILE"
         
     done < $DIR/.site-data
